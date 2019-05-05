@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classNames from "classnames";
 import './App.css';
 class App extends Component {
   constructor(props) {
@@ -66,12 +67,8 @@ class App extends Component {
             <div className="flex">
               <div
                 className="padding05"
-                onClick={() => {
-                  // if (rooms >= 1) {
-                  this.roomsChange(rooms - 1)
-                  // }
-                }}
-              ><i className="fas icon_minus fa-minus-circle"></i></div>
+                onClick={() => this.roomsChange(rooms - 1)}
+              ><i className={classNames("fas icon_minus fa-minus-circle", {"disabled_minus": rooms == 0})}></i></div>
               <div
                 className="padding05"
               >{rooms}</div>
@@ -81,7 +78,7 @@ class App extends Component {
                   if (rooms <= 4)
                     this.roomsChange(rooms + 1)
                 }}
-              ><i className="fas icon fa-plus-circle"></i></div>
+              ><i className={classNames("fas icon fa-plus-circle", {"disabled_plus": rooms == 5})}></i></div>
             </div>
           </div>
 
@@ -96,8 +93,8 @@ class App extends Component {
                     this.adultsChange(adult - 1)
                   }
                 }}
-              ><i className="fas icon_minus fa-minus-circle"></i></div>
-              <div
+                ><i className={classNames("fas icon_minus fa-minus-circle", {"disabled_minus": rooms == adult})}></i></div>
+                <div
                 className="padding05"              
               >{adult}</div>
               <div
@@ -105,8 +102,8 @@ class App extends Component {
                 onClick={() => {
                   this.adultsChange(adult + 1)
                 }}
-              ><i className="fas icon fa-plus-circle"></i></div>
-            </div>
+                ><i className={classNames("fas icon fa-plus-circle", {"disabled_plus": (children + adult) == rooms*4})}></i></div>
+                </div>
           </div>
 
           <div style={{margin:' 0'}}className="flex">
@@ -120,8 +117,8 @@ class App extends Component {
                     this.childrenChange(children - 1)
                   }
                 }}
-              ><i className="fas icon_minus fa-minus-circle"></i></div>
-              <div
+                ><i className={classNames("fas icon_minus fa-minus-circle", {"disabled_minus": children == 0})}></i></div>
+                <div
                 className="padding05"
                 >{children}</div>
               <div
@@ -129,7 +126,7 @@ class App extends Component {
                 onClick={() => {
                   this.childrenChange(children + 1)
                 }}
-              ><i className="fas icon fa-plus-circle"></i></div>
+                ><i className={classNames("fas icon fa-plus-circle", {"disabled_plus": (children + adult) == rooms*4})}></i></div>
             </div>
           </div>
 

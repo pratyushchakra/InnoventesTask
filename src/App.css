@@ -25,6 +25,14 @@ p {
 .flex1 {
   flex: 1
 }
+.disabled_minus {
+  color: #fd9c9c !important;
+  /* font-size: 25px !important */
+}
+.disabled_plus {
+  color: #9090c1 !important;
+  /* font-size: 25px !important */
+}
 .padding05 {
   padding: 0 5px;
 }
